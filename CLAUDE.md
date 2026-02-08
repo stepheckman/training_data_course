@@ -110,15 +110,28 @@ The CMU version had this outline (expand each section significantly for 4 hours)
 
 - Refer to Stephanie as "Boss"
 
-## Style Guidelines
+## Slide Design Philosophy
 
+Follow the **Rhetoric of Decks** philosophy (see `.claude/commands/compiledeck.md` and invoke with `/compiledeck`).
+
+Key principles for this deck:
+- **Audience type:** External (conference teaching) -- sparse, performative, one idea per slide
+- **Tone:** Professional/Academic -- consistent house style
+- **Theme:** Metropolis beamer theme (overrides the default theme in compiledeck; use Metropolis colors/structure but apply Rhetoric of Decks principles)
+- **Titles are assertions, not labels** -- if someone reads only titles in sequence, they should follow the argument
+- **One idea per slide** -- strictly enforced
+- **Beauty is function** -- every element earns its presence
+- **White space is confidence** -- don't fill slides
+- **Charts:** one message per chart, direct labels, no legends requiring eye movement
+- **Minimum font:** 24pt body (18pt floor)
+
+### Content-Specific Style Notes
 - Academic but accessible tone; audience knows surveys well but may be new to ML
 - Use concrete examples and real studies throughout
 - Include full citations on slides (author, year, DOI/URL) -- this audience values that
 - Slide numbers on every slide
 - Section divider slides for major topic transitions
 - Discussion prompt slides between major sections
-- Keep text concise on slides; use bullet points, figures, and diagrams
 - No emojis
 
 ## References (from CMU version, seed the .bib file)

@@ -1,0 +1,105 @@
+\begin{thebibliography}{13}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Al~Kuwatly et~al.(2020)Al~Kuwatly, Wich, and
+  Groh]{alkuwatly2020identifying}
+Hala Al~Kuwatly, Maximilian Wich, and Georg Groh.
+\newblock Identifying and measuring annotator bias based on demography.
+\newblock In \emph{Proceedings of the Fourth Workshop on Online Abuse and
+  Harms}, pages 184--190, 2020.
+
+\bibitem[Beck et~al.(2024)Beck, Eckman, Kern, and Kreuter]{beck2024order}
+Jacob Beck, Stephanie Eckman, Christoph Kern, and Frauke Kreuter.
+\newblock Order effects in annotation tasks.
+\newblock In \emph{Proceedings of the 1st Workshop on Uncertainty-Aware NLP
+  (UncertaiNLP)}, pages 81--89, 2024.
+\newblock URL \url{https://aclanthology.org/2024.uncertainlp-1.8.pdf}.
+
+\bibitem[Beck et~al.(2025)Beck, Eckman, Kern, and Kreuter]{beck2025pre}
+Jacob Beck, Stephanie Eckman, Christoph Kern, and Frauke Kreuter.
+\newblock Pre-annotation and automation bias in human labeling.
+\newblock \emph{arXiv preprint arXiv:2509.08514}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2509.08514}.
+
+\bibitem[Eckman and Kreuter(2024)]{eckman2024position}
+Stephanie Eckman and Frauke Kreuter.
+\newblock A position paper: Data collection in the age of {AI} -- bridging
+  surveys and training data.
+\newblock \emph{University of Maryland Working Paper}, 2024.
+
+\bibitem[Kern et~al.(2023)Kern, Eckman, Beck, Chew, Ma, and
+  Kreuter]{kern2023annotation}
+Christoph Kern, Stephanie Eckman, Jacob Beck, Rob Chew, Bo~Ma, and Frauke
+  Kreuter.
+\newblock Annotation sensitivity: Training data collection methods affect model
+  performance.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  EMNLP 2023}, pages 14874--14886, 2023.
+\newblock URL \url{https://aclanthology.org/2023.findings-emnlp.992/}.
+
+\bibitem[Krosnick and Presser(2010)]{krosnick2010question}
+Jon~A Krosnick and Stanley Presser.
+\newblock \emph{Question and Questionnaire Design}.
+\newblock Emerald Group Publishing, 2010.
+\newblock In: Handbook of Survey Research, 2nd edition.
+
+\bibitem[Monarch(2021)]{monarch2021human}
+Robert Monarch.
+\newblock \emph{Human-in-the-Loop Machine Learning: Active Learning and
+  Annotation for Human-Centered {AI}}.
+\newblock Manning Publications, 2021.
+
+\bibitem[Ng(2021)]{ng2021data}
+Andrew Ng.
+\newblock A chat with {Andrew} on {MLOps}: From model-centric to data-centric
+  {AI}.
+\newblock DeepLearning.AI, 2021.
+\newblock URL
+  \url{https://www.deeplearning.ai/the-batch/andrew-ng-data-centric-ai/}.
+
+\bibitem[Otterbacher et~al.(2018)Otterbacher, Bates, and
+  Clough]{otterbacher2018investigating}
+Jahna Otterbacher, Jo~Bates, and Paul Clough.
+\newblock Investigating user perception of gender bias in image search: The
+  role of sexism.
+\newblock In \emph{Proceedings of the 2018 CHI Conference on Human Factors in
+  Computing Systems}, pages 1--13, 2018.
+
+\bibitem[Sambasivan et~al.(2021)Sambasivan, Kapania, Highfill, Akrong,
+  Paritosh, and Aroyo]{sambasivan2021everyone}
+Nithya Sambasivan, Shivani Kapania, Hannah Highfill, Diana Akrong, Praveen
+  Paritosh, and Lora~M Aroyo.
+\newblock ``everyone wants to do the model work, not the data work'': Data
+  cascades in high-stakes {AI}.
+\newblock In \emph{Proceedings of the 2021 CHI Conference on Human Factors in
+  Computing Systems}, pages 1--15, 2021.
+\newblock \doi{10.1145/3411764.3445518}.
+
+\bibitem[Sculley et~al.(2015)Sculley, Holt, Golovin, Davydov, Phillips, Ebner,
+  Chaudhary, Young, Crespo, and Dennison]{sculley2015hidden}
+D~Sculley, Gary Holt, Daniel Golovin, Eugene Davydov, Todd Phillips, Dietmar
+  Ebner, Vinay Chaudhary, Michael Young, Jean-Fran{\c{c}}ois Crespo, and Dan
+  Dennison.
+\newblock Hidden technical debt in machine learning systems.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~28, 2015.
+
+\bibitem[Shumailov et~al.(2023)Shumailov, Shumilo, Zhao, Gal, Papernot, and
+  Anderson]{shumailov2023curse}
+Ilia Shumailov, Zakhar Shumilo, Yiren Zhao, Yarin Gal, Nicolas Papernot, and
+  Ross Anderson.
+\newblock The curse of recursion: Training on generated data makes models
+  forget.
+\newblock \emph{arXiv preprint arXiv:2305.17493}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2305.17493}.
+
+\bibitem[Sudman and Bradburn(1982)]{sudman1982asking}
+Seymour Sudman and Norman~M Bradburn.
+\newblock \emph{Asking Questions: A Practical Guide to Questionnaire Design}.
+\newblock Jossey-Bass, 1982.
+
+\end{thebibliography}
