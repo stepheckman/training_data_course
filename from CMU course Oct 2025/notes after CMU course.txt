@@ -1,0 +1,16 @@
+Relocate pre-labeling slide so it is better motivated
+
+Too many slides for 90 minutes
+
+Evaluation studies -- this is where representation is important
+
+Show results from surveys to motivate what we expect in labeling
+-- an early version did this
+
+Concrete take aways are of most interest to practitioners
+
+
+FROM FK:
+Overview of design elements
+Hypotheses about what effects there are
+Show studies from surveys where effects appear
