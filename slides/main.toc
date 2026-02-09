@@ -1,8 +1,8 @@
-\beamer@sectionintoc {1}{Survey Data Collection Basics}{7}{0}{1}
-\beamer@sectionintoc {2}{Training Data Collection}{13}{0}{2}
-\beamer@sectionintoc {3}{Measurement: Are the Labels Correct?}{18}{0}{3}
-\beamer@sectionintoc {4}{Representation: Who Labels?}{27}{0}{4}
-\beamer@sectionintoc {5}{Sampling: Which Instances to Label?}{35}{0}{5}
-\beamer@sectionintoc {6}{Ethics of Data Work}{53}{0}{6}
-\beamer@sectionintoc {7}{Practical Advice}{59}{0}{7}
-\beamer@sectionintoc {8}{Discussion and Closing}{63}{0}{8}
+\beamer@sectionintoc {1}{Survey Data Collection Basics}{9}{0}{1}
+\beamer@sectionintoc {2}{Training Data Collection}{15}{0}{2}
+\beamer@sectionintoc {3}{Measurement: Are the Labels Correct?}{27}{0}{3}
+\beamer@sectionintoc {4}{Representation: Who Labels?}{36}{0}{4}
+\beamer@sectionintoc {5}{Sampling: Which Instances to Label?}{44}{0}{5}
+\beamer@sectionintoc {6}{Ethics of Data Work}{62}{0}{6}
+\beamer@sectionintoc {7}{Practical Advice}{68}{0}{7}
+\beamer@sectionintoc {8}{Discussion and Closing}{72}{0}{8}

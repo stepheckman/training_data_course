@@ -1,4 +1,4 @@
-\begin{thebibliography}{13}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -61,6 +61,12 @@ Andrew Ng.
 \newblock URL
   \url{https://www.deeplearning.ai/the-batch/andrew-ng-data-centric-ai/}.
 
+\bibitem[{NLPerspectives Workshop}(2024)]{nlperspectives2024}
+{NLPerspectives Workshop}.
+\newblock Proceedings of the 3rd workshop on perspectivist approaches to {NLP}.
+\newblock In \emph{Proceedings of ACL 2024 Workshops}, 2024.
+\newblock URL \url{https://aclanthology.org/2024.nlperspectives-1.1/}.
+
 \bibitem[Otterbacher et~al.(2018)Otterbacher, Bates, and
   Clough]{otterbacher2018investigating}
 Jahna Otterbacher, Jo~Bates, and Paul Clough.
@@ -68,6 +74,15 @@ Jahna Otterbacher, Jo~Bates, and Paul Clough.
   role of sexism.
 \newblock In \emph{Proceedings of the 2018 CHI Conference on Human Factors in
   Computing Systems}, pages 1--13, 2018.
+
+\bibitem[Ouyang et~al.(2022)Ouyang, Wu, Jiang, Almeida, Wainwright, Mishkin,
+  Zhang, Agarwal, Slama, Ray, et~al.]{ouyang2022training}
+Long Ouyang, Jeffrey Wu, Xu~Jiang, Diogo Almeida, Carroll Wainwright, Pamela
+  Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et~al.
+\newblock Training language models to follow instructions with human feedback.
+\newblock \emph{Advances in Neural Information Processing Systems},
+  35:\penalty0 27730--27744, 2022.
+\newblock URL \url{https://arxiv.org/abs/2203.02155}.
 
 \bibitem[Sambasivan et~al.(2021)Sambasivan, Kapania, Highfill, Akrong,
   Paritosh, and Aroyo]{sambasivan2021everyone}

@@ -118,6 +118,80 @@ for \textbf{decades}. We have tools for this.
 \hfill \citep{ng2021data}
 \end{frame}
 
+% ── Better data beats better models ──────────────────────────
+\begin{frame}{Better data beats a better model}
+
+\begin{columns}[c]
+\begin{column}{0.45\textwidth}
+\begin{quote}
+``A reasonable algorithm\\
+with good data is preferable\\
+to a great algorithm with\\
+not-so-good data.''
+\end{quote}
+
+\vspace{0.3em}
+\hfill --- Andrew Ng, 2021
+\end{column}
+
+\begin{column}{0.50\textwidth}
+\begin{center}
+\small \textbf{Steel defect detection accuracy}
+\begin{tikzpicture}[scale=0.75, transform shape]
+% Y-axis
+\draw[thick] (0,0) -- (0,5.5);
+\foreach \y/\lab in {0/0\%, 1/20\%, 2/40\%, 3/60\%, 4/80\%, 5/100\%} {
+  \draw (-0.1, \y) -- (0, \y);
+  \node[font=\scriptsize, anchor=east] at (-0.15, \y) {\lab};
+}
+\node[font=\scriptsize, rotate=90, anchor=south] at (-0.9, 2.5) {Balanced accuracy};
+
+% X-axis
+\draw[thick] (0,0) -- (5.5,0);
+
+% Model-centric bar (76.2%)
+\draw[fill=neutralcol!50] (0.8, 0) rectangle (2.2, 3.81);
+\node[font=\scriptsize\bfseries] at (1.5, 4.05) {76.2\%};
+\node[font=\scriptsize, align=center] at (1.5, -0.5) {Model-\\centric};
+
+% Data-centric bar (93.1%)
+\draw[fill=mLightBrown!70] (3.3, 0) rectangle (4.7, 4.655);
+\node[font=\scriptsize\bfseries] at (4.0, 4.9) {93.1\%};
+\node[font=\scriptsize, align=center] at (4.0, -0.5) {Data-\\centric};
+\end{tikzpicture}
+\end{center}
+\end{column}
+\end{columns}
+
+\vspace{0.3em}
+\small Improving the \textbf{data} yielded a 17 percentage point gain.\\
+Improving the model yielded almost none.
+
+\hfill \small \citep{ng2021data}
+\end{frame}
+
+% ── Industry knows this matters ──────────────────────────────
+\begin{frame}{Industry leaders worry about data quality}
+
+\begin{quote}
+``The bias I am most nervous about is the bias\\
+of the human feedback raters.''
+\end{quote}
+
+\vspace{0.5em}
+\hfill --- Sam Altman, March 2023
+
+\vspace{1.5em}
+
+The people who label training data shape the model.\\
+Their biases become the model's biases.
+
+\vspace{1em}
+
+This is a \textbf{data collection} problem ---\\
+exactly the kind survey researchers know how to study.
+\end{frame}
+
 % ── What survey research brings ──────────────────────────────
 \begin{frame}{Survey researchers bring a unique perspective}
 \begin{itemize}
@@ -258,6 +332,27 @@ The same model applies to annotators labeling data.
 
 \section{Training Data Collection}
 
+% ── Why humans are needed ────────────────────────────────────
+\begin{frame}{ML models need humans to learn from}
+
+\textbf{Supervised learning} requires labeled examples:
+\begin{itemize}
+  \item A model sees an image $\to$ a human says ``cat''
+  \item A model reads a tweet $\to$ a human says ``hate speech''
+  \item A model generates text $\to$ a human says ``response A is better''
+\end{itemize}
+
+\vspace{1em}
+
+Without these human judgments, the model cannot learn\\
+what ``correct'' means.
+
+\vspace{1em}
+
+The quality of these labels \textbf{directly shapes} model behavior.
+\end{frame}
+
+% ── Where training data comes from ───────────────────────────
 \begin{frame}{Where does training data come from?}
 \begin{enumerate}
   \item \textbf{Found data} -- web scraping, social media, government records
@@ -271,23 +366,217 @@ This course focuses on \textbf{human-labeled data}:\\
 the labels that teach ML models what is ``correct.''
 \end{frame}
 
-% ── What labeling looks like ─────────────────────────────────
-\begin{frame}{What does labeling look like in practice?}
-Examples of labeling tasks:
+% ── Two kinds of labeling ────────────────────────────────────
+\begin{frame}{Two kinds of human labeling}
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\textbf{Training data collection}\\[0.5em]
+Tend to be \textbf{objective} tasks\\[0.3em]
+\small
 \begin{itemize}
-  \item \textbf{Text classification:} Is this tweet hate speech? Offensive? Neither?
-  \item \textbf{Image classification:} Does this image contain a pedestrian?
-  \item \textbf{Named entity recognition:} Mark all person names in this text
-  \item \textbf{RLHF:} Which of two model responses is better?
-  \item \textbf{Relevance:} Is this search result relevant to the query?
+  \item Image classification (dog/cat/other)
+  \item Named entity recognition
+  \item Object detection in images
+  \item Document categorization
 \end{itemize}
+\vspace{0.5em}
+\normalsize
+Labelers: crowdworkers, experts,\\
+researchers, graduate students
+\end{column}
 
-\vspace{1em}
-
-Each task has \textbf{design choices} that affect label quality.
+\begin{column}{0.48\textwidth}
+\textbf{Human feedback collection}\\[0.5em]
+Tend to be \textbf{subjective} tasks\\[0.3em]
+\small
+\begin{itemize}
+  \item Which response is ``better''?
+  \item Is this content harmful?
+  \item Rate quality on a 1--7 scale
+  \item Is this summary accurate?
+\end{itemize}
+\vspace{0.5em}
+\normalsize
+Used to fine-tune LLMs via RLHF\\
+(reinforcement learning from\\
+human feedback)
+\end{column}
+\end{columns}
 \end{frame}
 
-% ── The human side ───────────────────────────────────────────
+% ── Training data: image classification ──────────────────────
+\begin{frame}{Example: image classification}
+
+\begin{columns}[c]
+\begin{column}{0.55\textwidth}
+A labeler sees an image and selects a category:
+
+\vspace{0.5em}
+
+\begin{tikzpicture}[
+  formbox/.style={draw, rounded corners=2pt, fill=neutralcol!10, minimum width=5cm, font=\small, align=left, inner sep=8pt}
+]
+\node[formbox] at (0,0) {
+  \textbf{What kind of animal is this?}\\[5pt]
+  $\bigcirc$ Bird\\
+  $\bullet$ Not\_Bird\\
+  $\bigcirc$ Unable\_to\_tell\\[8pt]
+  \fbox{\small\textsf{SUBMIT}}
+};
+\end{tikzpicture}
+
+\vspace{0.5em}
+
+\hfill \small \citep{nlperspectives2024}
+\end{column}
+
+\begin{column}{0.40\textwidth}
+\small
+Seems simple, but consider:
+\begin{itemize}
+  \item What counts as a ``bird''?
+  \item A toy bird? A painting?
+  \item What if you can't tell from the image?
+\end{itemize}
+
+\vspace{0.5em}
+
+Even ``objective'' tasks require\\
+interpretation.
+\end{column}
+\end{columns}
+\end{frame}
+
+% ── Human feedback: RLHF interface ───────────────────────────
+\begin{frame}{Example: RLHF rating interface}
+
+The interface used to train InstructGPT / ChatGPT:
+
+\vspace{0.5em}
+
+\begin{center}
+\small
+\begin{tikzpicture}[
+  ibox/.style={draw, rounded corners=2pt, fill=lightbg, minimum width=12cm, font=\small, align=left, inner sep=6pt}
+]
+\node[ibox] at (0,0) {
+  \textbf{Instruction:} Summarize the following news article.\\[3pt]
+  \hspace{1em} \textit{[Article text here]}\\[6pt]
+  \textbf{Output A:} \colorbox{successcol!30}{Article summary}
+  \hspace{2em} \textbf{Rating (1=worst, 7=best):}
+  \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5} \fbox{6} \fbox{7}\\[4pt]
+  Does it contain sexual content? \hspace{0.5em} $\bigcirc$~Yes \hspace{0.3em} $\bigcirc$~No\\
+  Does it contain violent content? \hspace{0.5em} $\bigcirc$~Yes \hspace{0.3em} $\bigcirc$~No\\
+  Does it give harmful advice? \hspace{1.15em} $\bigcirc$~Yes \hspace{0.3em} $\bigcirc$~No
+};
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.3em}
+\hfill \small \citep{ouyang2022training}
+\end{frame}
+
+% ── NER annotation ───────────────────────────────────────────
+\begin{frame}{Example: named entity recognition}
+
+Annotators highlight text spans and assign entity types:
+
+\vspace{0.5em}
+
+\begin{center}
+\small
+\begin{tikzpicture}
+\node[anchor=west, font=\small] at (0,0) {
+  \colorbox{alertcol!30}{East Repair Inc.}
+  \colorbox{neutralcol!30}{1912 Harvest Lane}
+  \colorbox{mLightBrown!30}{11/02/2019}
+};
+
+% Legend
+\node[anchor=west, font=\scriptsize] at (0, -0.8) {
+  \colorbox{alertcol!30}{\strut SELLER} \quad
+  \colorbox{neutralcol!30}{\strut ADDRESS} \quad
+  \colorbox{mLightBrown!30}{\strut DATE} \quad
+  \colorbox{successcol!50}{\strut AMOUNT}
+};
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.5em}
+
+The labeler decides: Where does an entity start and end?\\
+What type is it? These are \textbf{judgment calls}.
+\end{frame}
+
+% ── Who does this work ───────────────────────────────────────
+\begin{frame}{Who labels training data?}
+
+\begin{description}
+  \item[Crowdworkers] -- Amazon MTurk, Appen, Scale AI, Surge AI\\
+    \small Fast, cheap, large scale. Variable quality and training.
+  \normalsize
+  \item[Domain experts] -- doctors, lawyers, linguists\\
+    \small High quality, expensive, scarce. Used for specialized tasks.
+  \normalsize
+  \item[Researchers / graduate students] -- small scale\\
+    \small Often for academic datasets. Potential bias toward researcher's hypotheses.
+  \normalsize
+  \item[LLMs] -- GPT-4, Claude, etc.\\
+    \small Increasingly common. Fast, but carries systematic biases.
+\end{description}
+\end{frame}
+
+% ── The core insight ─────────────────────────────────────────
+\begin{frame}{These annotation tasks are a lot like surveys}
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\textbf{Annotation interface}\\[0.3em]
+\small
+\begin{tikzpicture}[
+  formbox/.style={draw, rounded corners=2pt, fill=lightbg, minimum width=4.5cm, font=\scriptsize, align=left, inner sep=5pt}
+]
+\node[formbox] at (0,0) {
+  \textbf{Does this tweet contain}\\
+  \textbf{hate speech?}\\[3pt]
+  $\bigcirc$ Yes\\
+  $\bigcirc$ No\\[3pt]
+  \textbf{Does this tweet contain}\\
+  \textbf{offensive language?}\\[3pt]
+  $\bigcirc$ Yes\\
+  $\bigcirc$ No
+};
+\end{tikzpicture}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textbf{Survey questionnaire}\\[0.3em]
+\small
+\begin{tikzpicture}[
+  formbox/.style={draw, rounded corners=2pt, fill=lightbg, minimum width=4.5cm, font=\scriptsize, align=left, inner sep=5pt}
+]
+\node[formbox] at (0,0) {
+  \textbf{How safe is your}\\
+  \textbf{neighborhood?}\\[3pt]
+  $\bigcirc$ Very safe\\
+  $\bigcirc$ Somewhat safe\\
+  $\bigcirc$ Not safe\\[3pt]
+  \textbf{How confident are you}\\
+  \textbf{in this answer?}\\[3pt]
+  $\bigcirc$ Very \enspace $\bigcirc$ Somewhat \enspace $\bigcirc$ Not
+};
+\end{tikzpicture}
+\end{column}
+\end{columns}
+
+\vspace{0.5em}
+
+\textbf{Same structure:} radio buttons, response scales, skip logic.\\
+Same design $\to$ same potential for error.
+\end{frame}
+
+% ── Labelers are people ──────────────────────────────────────
 \begin{frame}{Labelers are people, not machines}
 
 Behind every training dataset are \textbf{human decisions}.
@@ -327,6 +616,27 @@ Nonresponse & Who refuses? & Who drops out/skips? \\
 \end{center}
 \end{frame}
 
+% ── Training data concerns ───────────────────────────────────
+\begin{frame}{Two questions organize the rest of this course}
+
+\begin{center}
+\begin{tikzpicture}
+\node[draw, rounded corners=4pt, fill=neutralcol!15, minimum width=10cm, minimum height=1.5cm, align=center, font=\normalsize] at (0, 1.5) {
+  \textbf{Measurement:} Are the labels correct?
+};
+
+\node[draw, rounded corners=4pt, fill=mLightBrown!15, minimum width=10cm, minimum height=1.5cm, align=center, font=\normalsize] at (0, -0.5) {
+  \textbf{Representation:} Who labels?
+};
+\end{tikzpicture}
+\end{center}
+
+\vspace{1em}
+
+The same two families of error from Total Survey Error.\\
+We will tackle each one in turn.
+\end{frame}
+
 % ══════════════════════════════════════════════════════════════
 % SECTION 4: Measurement -- Are the Labels Correct?
 % ══════════════════════════════════════════════════════════════
@@ -342,9 +652,9 @@ Nonresponse & Who refuses? & Who drops out/skips? \\
   gap/.style={font=\scriptsize, text=alertcol}
 ]
 \node[box] (concept) at (0,0) {Concept};
-\node[box] (guidelines) at (4,0) {Guidelines};
-\node[box] (task) at (8,0) {Task design};
-\node[box] (label) at (12,0) {Label};
+\node[box] (guidelines) at (3.5,0) {Guidelines};
+\node[box] (task) at (7,0) {Task design};
+\node[box] (label) at (10.5,0) {Label};
 
 \draw[arrow] (concept) -- node[above, gap] {definition gap} (guidelines);
 \draw[arrow] (guidelines) -- node[above, gap] {design gap} (task);
